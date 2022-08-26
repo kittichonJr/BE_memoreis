@@ -15,16 +15,13 @@ dotenv.config();
 
 if (process.env.IS_VERCEL) {
   app.use(async (req, res, next) => {
-    await mongoose.connect(process.env.CONNECTION_URL, {
-      useNewUrlParser: true,
-      useUnifiedTopology: true,
-    });
+    await mongoose.connect(process.env.CONNECTION_URL);
     return next();
   });
 }
 
 app.use(bodyParser.json({ limit: "30mb", extedned: true }));
-app.use(bodyParser.urlencoded({ limit: "30mb", extedned: true }));
+// app.use(bodyParser.urlencoded({ limit: "30mb", extedned: true }));
 
 app.use("/posts", postRoutes);
 app.use("/user", userRoutes);
