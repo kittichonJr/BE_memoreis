@@ -1,7 +1,7 @@
 import express from "express";
 import bodyParser from "body-parser";
 import cors from "cors";
-
+import mongoose from "mongoose";
 import postRoutes from "../routes/posts.js";
 import userRoutes from "../routes/users.js";
 import dotenv from "dotenv";
