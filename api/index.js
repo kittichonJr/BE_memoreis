@@ -6,6 +6,7 @@ import postRoutes from "../routes/posts.js";
 import userRoutes from "../routes/users.js";
 import dotenv from "dotenv";
 const app = express();
+app.use(cors());
 dotenv.config();
 
 if (process.env.IS_VERCEL) {
@@ -20,7 +21,6 @@ if (process.env.IS_VERCEL) {
 
 app.use(bodyParser.json({ limit: "30mb", extedned: true }));
 app.use(bodyParser.urlencoded({ limit: "30mb", extedned: true }));
-app.use(cors());
 
 app.use("/posts", postRoutes);
 app.use("/user", userRoutes);
