@@ -20,8 +20,8 @@ if (process.env.IS_VERCEL) {
   });
 }
 
-app.use(bodyParser.json({ limit: "30mb" }));
-// app.use(bodyParser.urlencoded({ limit: "30mb", extedned: true }));
+app.use(bodyParser.urlencoded({ limit: "30mb", extended: true }));
+app.use(bodyParser.json({ limit: "30mb", extended: true }));
 
 app.use("/posts", postRoutes);
 app.use("/user", userRoutes);
