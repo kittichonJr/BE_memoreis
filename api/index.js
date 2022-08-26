@@ -6,7 +6,11 @@ import postRoutes from "../routes/posts.js";
 import userRoutes from "../routes/users.js";
 import dotenv from "dotenv";
 const app = express();
-app.use(cors());
+app.use(
+  cors({
+    origin: "*",
+  })
+);
 dotenv.config();
 
 if (process.env.IS_VERCEL) {
